@@ -27,6 +27,7 @@ tasks:
       - build
     desc: "Building project"
     cmds:
+      - task clean
       - task cmake
       - task make
 
@@ -36,4 +37,4 @@ tasks:
     desc: "Running Zelda"
     cmds:
       - task build
-      - ./build/Zelda
+      - ./build/bin/Zelda
