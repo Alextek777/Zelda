@@ -1,0 +1,39 @@
+version: '3'
+
+tasks:
+  cmake:
+    aliases:
+      - cmake
+    desc: "CMake project"
+    cmds:
+      - cmake . -Bbuild
+
+  make:
+    aliases:
+      - make
+    desc: "Make project"
+    cmds:
+      - make -C ./build
+
+  clean:
+    aliases:
+      - clean
+    desc: "Cleaning build directory"
+    cmds:
+      - rm -rf build/*
+
+  build:
+    aliases:
+      - build
+    desc: "Building project"
+    cmds:
+      - task cmake
+      - task make
+
+  run:
+    aliases:
+      - run
+    desc: "Running Zelda"
+    cmds:
+      - task build
+      - ./build/Zelda
