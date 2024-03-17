@@ -3,6 +3,7 @@
 Menu::Menu()
 {
     sAppName = "Zelda";
+
 }
 
 bool Menu::OnUserCreate(){
@@ -57,7 +58,9 @@ bool Menu::OnUserUpdate(float fElapsedTime){
         // Handle selected option
         if (nSelectedOption == 0)
         {
-            // Start Game
+            RPG_Engine game;
+            if (game.Construct(256, 240, 4, 4))
+                game.Start();
         }
         else if (nSelectedOption == 1)
         {

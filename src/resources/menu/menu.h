@@ -1,4 +1,6 @@
 #include <olcPixelGameEngine.h>
+#include "game/RPG_Engine.h"
+
 
 class Menu : public olc::PixelGameEngine
 {
@@ -9,6 +11,7 @@ public:
     bool OnUserUpdate(float fElapsedTime) override;
 
 private:
+    //RPG_Engine game;
     std::vector<std::string> vecMenuOptions;
     int nSelectedOption;
 };
