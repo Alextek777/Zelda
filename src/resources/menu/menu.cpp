@@ -3,10 +3,22 @@
 Menu::Menu()
 {
     sAppName = "Zelda";
-
 }
 
 bool Menu::OnUserCreate(){
+    std::string defPath = "/home/kalex/practice/olcGames/tutorial/Zelda/build/bin/";
+    olc::Sprite* spr = new olc::Sprite(defPath + "images/background.png");
+    uint32_t nLayerBackground = CreateLayer();
+    SetDrawTarget(nLayerBackground);
+    Clear(olc::WHITE);
+    SetPixelMode(olc::Pixel::ALPHA);
+    DrawSprite({0,0}, spr);
+    SetPixelMode(olc::Pixel::NORMAL);
+    EnableLayer(nLayerBackground, true);
+    SetDrawTarget(nullptr);
+
+
+
     // Define menu options
     vecMenuOptions.push_back("Start Game");
     vecMenuOptions.push_back("Options");
@@ -20,7 +32,7 @@ bool Menu::OnUserCreate(){
 
 bool Menu::OnUserUpdate(float fElapsedTime){
     // Clear screen
-    Clear(olc::BLACK);
+    Clear(olc::BLANK);
 
     // Draw menu options
     for (int i = 0; i < vecMenuOptions.size(); ++i)
@@ -58,8 +70,8 @@ bool Menu::OnUserUpdate(float fElapsedTime){
         // Handle selected option
         if (nSelectedOption == 0)
         {
-            RPG_Engine game;
-            if (game.Construct(256, 240, 4, 4))
+            Engine game;
+            if (game.Construct(400, 400, 4, 4))
                 game.Start();
         }
         else if (nSelectedOption == 1)
