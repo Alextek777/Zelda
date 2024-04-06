@@ -1,5 +1,4 @@
-#include <olcPixelGameEngine.h>
-#include "game/Engine.h"
+#include <RPG_Engine.h>
 
 
 class Menu : public olc::PixelGameEngine
@@ -13,5 +12,5 @@ public:
 private:
     //RPG_Engine game;
     std::vector<std::string> vecMenuOptions;
-    int nSelectedOption;
+    int nSelectedOption{};
 };

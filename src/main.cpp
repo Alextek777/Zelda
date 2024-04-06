@@ -2,11 +2,12 @@
 #include <menu/menu.h>
 
 
-int main()
+auto main() -> int
 {
     Menu menu;
-    if (menu.Construct(320, 240, 2, 2))
+    if (menu.Construct(320, 240, 2, 2) != 0) {
         menu.Start();
+}
 
     return 0;
 }
